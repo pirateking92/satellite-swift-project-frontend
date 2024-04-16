@@ -1,8 +1,9 @@
+
 //
-//  SignUpView.swift
+//  AuthenticationService.swift
 //  MobileAcebook
 //
-//  Created by Oli Kelly on 16/04/2024.
+//  Created by Josué Estévez Fernández on 01/10/2023.
 //
 
 import SwiftUI
@@ -12,7 +13,7 @@ struct SignUpView: View {
     @State private var newUser: User = User(username: "", password: "", email: "")
     @StateObject private var authentication = AuthenticationService()
     @State private var isSignedUp = false
-    
+
     var body: some View {
         NavigationStack {
             VStack {
