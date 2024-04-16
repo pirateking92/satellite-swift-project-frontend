@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct LoginResponse: Codable {
+    let message: String
+    let token: String
+}
+
 class AuthenticationService: AuthenticationServiceProtocol, ObservableObject {
     
     func signUp(user: User, completion: @escaping (Bool) -> Void) {
@@ -43,9 +48,11 @@ class AuthenticationService: AuthenticationServiceProtocol, ObservableObject {
         }.resume()
     }
     
-    func login(user: User, completion: @escaping (Bool, String?) -> Void) {
+
+    
+    func login(user: User, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
         guard let url = URL(string: "http://localhost:3000/tokens") else {
-            completion(false, nil)
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
         
@@ -64,21 +71,30 @@ class AuthenticationService: AuthenticationServiceProtocol, ObservableObject {
             request.httpBody = jsonData
             
         } catch {
-            completion(false, nil)
+            completion(.failure(error))
+            return
         }
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let httpResponse = response as? HTTPURLResponse {
-                if httpResponse.statusCode == 201 {
-                    if let responseData = data,
-                       let json = try? JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
-                       let token = json["token"] as? String {
-                        completion(true, token)
-                    } else {
-                        completion(false, nil)
-                    }
-                    
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(NSError(domain: "HTTP Error", code: (response as? HTTPURLResponse)?.statusCode ?? 0, userInfo: nil)))
+                return
+            }
+            
+            if let responseData = data {
+                do {
+                    let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
+                    completion(.success(loginResponse))
+                } catch {
+                    completion(.failure(error))
                 }
+            } else {
+                completion(.failure(NSError(domain: "No data received", code: 0, userInfo: nil)))
             }
         }.resume()
     }

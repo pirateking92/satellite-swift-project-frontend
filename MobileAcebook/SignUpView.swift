@@ -47,7 +47,7 @@ struct SignUpView: View {
                 .background(Color.blue)
                 .cornerRadius(15.0)
             }
-            .navigationDestination(isPresented: $isSignedUp) {WelcomePageView()}
+            .navigationDestination(isPresented: $isSignedUp) {LoginView()}
         }
     }
 }

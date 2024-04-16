@@ -12,6 +12,7 @@ struct LoginView: View {
     @State private var newUser: User = User(username: "", password: "", email: "")
     @StateObject private var authentication = AuthenticationService()
     @State private var isLoggedIn = false
+    @State private var loginError: String?
     
     var body: some View {
         NavigationStack {
@@ -25,25 +26,41 @@ struct LoginView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .autocapitalization(.none)
                     .padding()
-                Button(action: {authentication.login(user: newUser) {success, token in
-                    if success {
-                        isLoggedIn = true
-                    }
-                    else {
-                        return
-                    }
+                Button(action: {
+                    login()
+                }) {
+                    Text("Login")
                 }
-                })
-                {
-                    Text("Login")}
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding()
                 .frame(width: 220, height: 50)
                 .background(Color.blue)
                 .cornerRadius(15.0)
+
+                if let error = loginError {
+                    Text(error)
+                        .foregroundColor(.red)
+                        .padding()
+                }
             }
-            .navigationDestination(isPresented: $isLoggedIn) {SignUpView()}
+            .navigationDestination(isPresented: $isLoggedIn) {
+                WelcomePageView()
+            }
+        }
+    }
+
+    private func login() {
+        authentication.login(user: newUser) { result in
+            switch result {
+            case .success(let loginResponse):
+                isLoggedIn = true
+                print("Message: \(loginResponse.message)")
+                print("Token: \(loginResponse.token)")
+                print("\(loginResponse.token)")
+            case .failure(let error):
+                loginError = error.localizedDescription
+            }
         }
     }
 }
