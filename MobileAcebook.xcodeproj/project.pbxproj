@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1E98D8152BCE89A10023D286 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98D8142BCE89A10023D286 /* SignUpView.swift */; };
 		1E98D8172BCEBD220023D286 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98D8162BCEBD220023D286 /* LoginView.swift */; };
+		1E98D8192BCFDB9C0023D286 /* fs-vincent.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E98D8182BCFDB9C0023D286 /* fs-vincent.ttf */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
 		AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B32AC8A224009680C6 /* Assets.xcassets */; };
 		AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B62AC8A224009680C6 /* Preview Assets.xcassets */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		1E98D8142BCE89A10023D286 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1E98D8162BCEBD220023D286 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		1E98D8182BCFDB9C0023D286 /* fs-vincent.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fs-vincent.ttf"; path = "../../../../Downloads/fs-vincent/fs-vincent.ttf"; sourceTree = "<group>"; };
+		1E98D81E2BCFDF6D0023D286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AE5D85AC2AC8A221009680C6 /* MobileAcebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAcebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAcebookApp.swift; sourceTree = "<group>"; };
 		AE5D85B32AC8A224009680C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 		AE5D85AE2AC8A221009680C6 /* MobileAcebook */ = {
 			isa = PBXGroup;
 			children = (
+				1E98D81E2BCFDF6D0023D286 /* Info.plist */,
 				AE5D85E42AC9B060009680C6 /* Protocols */,
 				AE5D85DF2AC9AF83009680C6 /* Models */,
 				AE5D85DD2AC9AF72009680C6 /* Services */,
@@ -141,6 +145,7 @@
 		AE5D85C92AC8A224009680C6 /* MobileAcebookUITests */ = {
 			isa = PBXGroup;
 			children = (
+				1E98D8182BCFDB9C0023D286 /* fs-vincent.ttf */,
 				AE5D85CA2AC8A224009680C6 /* MobileAcebookUITests.swift */,
 				AE5D85CC2AC8A224009680C6 /* MobileAcebookUITestsLaunchTests.swift */,
 				AE5D85DB2AC8A422009680C6 /* WelcomePageUITests.swift */,
@@ -285,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */,
+				1E98D8192BCFDB9C0023D286 /* fs-vincent.ttf in Resources */,
 				AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,6 +485,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MobileAcebook/PreviewContent\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MobileAcebook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -507,6 +514,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MobileAcebook/PreviewContent\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MobileAcebook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
