@@ -10,6 +10,7 @@ import AVKit
 
 
 struct LoginView: View {
+    
     @State private var newUser: User = User(username: "", password: "", email: "")
     @StateObject private var authentication = AuthenticationService()
     @State private var isLoggedIn = false

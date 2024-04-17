@@ -89,6 +89,8 @@ class AuthenticationService: AuthenticationServiceProtocol, ObservableObject {
             if let responseData = data {
                 do {
                     let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
+                    UserDefaults.standard.set(loginResponse.token, forKey: "token")
+                    print("UserDefaults token saved: \(UserDefaults.standard.string(forKey: "token")!)")
                     completion(.success(loginResponse))
                 } catch {
                     completion(.failure(error))

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1E98D8152BCE89A10023D286 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98D8142BCE89A10023D286 /* SignUpView.swift */; };
 		1E98D8172BCEBD220023D286 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98D8162BCEBD220023D286 /* LoginView.swift */; };
-		1E98D8192BCFDB9C0023D286 /* fs-vincent.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E98D8182BCFDB9C0023D286 /* fs-vincent.ttf */; };
+		8F41118A2BCEB24D004889EA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4111892BCEB24D004889EA /* Post.swift */; };
+		8F9E7A072BCE779800A82B0F /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9E7A062BCE779800A82B0F /* PostService.swift */; };
+		8F9E7A092BCE7BB600A82B0F /* FeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9E7A082BCE7BB600A82B0F /* FeedPageView.swift */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
 		AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B32AC8A224009680C6 /* Assets.xcassets */; };
 		AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B62AC8A224009680C6 /* Preview Assets.xcassets */; };
@@ -44,8 +46,9 @@
 /* Begin PBXFileReference section */
 		1E98D8142BCE89A10023D286 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1E98D8162BCEBD220023D286 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		1E98D8182BCFDB9C0023D286 /* fs-vincent.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "fs-vincent.ttf"; path = "../../../../Downloads/fs-vincent/fs-vincent.ttf"; sourceTree = "<group>"; };
-		1E98D81E2BCFDF6D0023D286 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8F4111892BCEB24D004889EA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8F9E7A062BCE779800A82B0F /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		8F9E7A082BCE7BB600A82B0F /* FeedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageView.swift; sourceTree = "<group>"; };
 		AE5D85AC2AC8A221009680C6 /* MobileAcebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAcebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAcebookApp.swift; sourceTree = "<group>"; };
 		AE5D85B32AC8A224009680C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				AE5D85B52AC8A224009680C6 /* PreviewContent */,
 				AE5D85D92AC8A337009680C6 /* WelcomePageView.swift */,
 				1E98D8142BCE89A10023D286 /* SignUpView.swift */,
+				8F9E7A082BCE7BB600A82B0F /* FeedPageView.swift */,
 			);
 			path = MobileAcebook;
 			sourceTree = "<group>";
@@ -157,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
+				8F9E7A062BCE779800A82B0F /* PostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				AE5D85E72AC9B29A009680C6 /* User.swift */,
+				8F4111892BCEB24D004889EA /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +324,9 @@
 			files = (
 				AE5D85E12AC9AFA9009680C6 /* AuthenticationService.swift in Sources */,
 				1E98D8172BCEBD220023D286 /* LoginView.swift in Sources */,
+				8F9E7A092BCE7BB600A82B0F /* FeedPageView.swift in Sources */,
+				8F9E7A072BCE779800A82B0F /* PostService.swift in Sources */,
+				8F41118A2BCEB24D004889EA /* Post.swift in Sources */,
 				AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
