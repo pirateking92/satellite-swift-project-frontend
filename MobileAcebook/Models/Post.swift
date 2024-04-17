@@ -10,9 +10,10 @@ import Foundation
 public struct Post: Codable {
     var _id: String
     var message: String
-    var createdAt: String // Assuming createdAt is returned as a String from the backend
+    var createdAt: String
     var imgUrl: String?
     var createdBy: CreatedBy
+//    var likes: [CreatedBy]
 }
 
 public struct CreatedBy: Codable {

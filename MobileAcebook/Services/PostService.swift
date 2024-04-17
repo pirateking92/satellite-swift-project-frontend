@@ -79,7 +79,7 @@ func createPost(postContent: String) -> Void {
 //}
 
 
-func getPosts() -> Void {
+func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
     
     let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxZTRmN2EwNTZjMjY2MDE2ZjJjMWIxIiwiaWF0IjoxNzEzMjYyNzQwLCJleHAiOjE3MTM4NjI3NDB9.DTMTjtXdhz8KYv93ai2SEeABo7uUQ5NGXfSEI4i8sRQ"
     
@@ -99,25 +99,20 @@ func getPosts() -> Void {
     var request = URLRequest(url: url)
     request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
     
-//    create an empty posts list
-    var posts: [Post] = []
-    
-    print(postList)
     
 //    get data
     URLSession.shared.dataTask(with: request) { data, response, error in
         guard let data = data, error == nil else {
-            print("Invalid URL")
+            completion(nil, error)
             return
         }
-        
-        //    decode
-        let postResponse = try? JSONDecoder().decode(ResponseData.self, from: data)
-        
-        //        asynchronous - add response to posts
-        DispatchQueue.main.async {
-            print("HELLO")
-            posts = postResponse?.posts ?? []
+        do {
+//            decode
+          let postsResponse = try JSONDecoder().decode(ResponseData.self, from: data)
+          completion(postsResponse.posts, nil)
+        } catch {
+          print("Decoding error: \(error)")
+          completion(nil, error)
         }
     }.resume()
 
