@@ -25,16 +25,10 @@ struct FeedPageView: View {
                     }
                 }
                 
+                Spacer()
+                
                 Button(action: {
-                    Task {
-                        do {
-                            // 'await' means we wait for the function to complete and return a value.
-                            postList = try await getPosts()
-                        } catch {
-                            // Catch any errors thrown by the async function.
-                            print("Error: \(error)")
-                        }
-                    }
+                    getPosts()
                 }) {
                     Text("Get posts")
                 }
