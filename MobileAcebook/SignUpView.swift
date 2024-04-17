@@ -20,60 +20,82 @@ struct SignUpView: View {
 
     var body: some View {
         NavigationStack {
-            ZStack {
-                VideoPlayer(player: player)
-                    .ignoresSafeArea()
-                    .onAppear {
-                        
-                        guard let url = URL(string: videoUrl) else { return }
-                        player = AVPlayer(url: url)
+        ZStack {
+            VideoPlayer(player: player)
+                .ignoresSafeArea()
+                .onAppear {
+                    
+                    guard let url = URL(string: videoUrl) else { return }
+                    player = AVPlayer(url: url)
+                    player.play()
+                    
+                    // Loop the video when it ends
+                    NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { _ in
+                        player.seek(to: .zero)
                         player.play()
-                        
-                        // Loop the video when it ends
-                        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { _ in
-                            player.seek(to: .zero)
-                            player.play()
-                        }
                     }
-                
-                VStack {
-                    TextField("Choose your username", text: $newUser.username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .padding()
-                    TextField("Add your email address", text: $newUser.email)
-                        .background(Color(red: 100, green: 1000, blue: 100))
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .padding()
-                    SecureField("Choose your password here", text: $newUser.password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .autocapitalization(.none)
-                        .padding()
-                    Button(action: {authentication.signUp(user: newUser) {success in
-                        if success {
-                            isSignedUp = true
-                        }
-                        else {
-                            return
-                        }
-                    }
-                    })
-                    {
-                        Text("Sign up here")}
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 220, height: 50)
-                    .background(Color.gray)
-                    .cornerRadius(15.0)
-                    .opacity(0.3)
                 }
-                .navigationDestination(isPresented: $isSignedUp) {LoginView()}
+            
+            VStack {
+                Image("satellite-dish")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 60, height: 60)
+                    .accessibilityIdentifier("satellite-logo")
+                Text("Join the Satellite community\n and soar to new heights!")
+                    .font(.custom("Futura", size: 20))
+                    .foregroundColor(Color(red: 188/255, green: 188/255, blue: 188/255))
+                    .multilineTextAlignment(.center)
+            }
+            
+            .padding(.bottom, 400)
+            
+            VStack {
+                TextField("Choose your username", text: $newUser.username)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .padding()
+                    .padding(.top, 25)
+                TextField("Add your email address", text: $newUser.email)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .padding()
+                SecureField("Choose your password here", text: $newUser.password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .autocapitalization(.none)
+                    .padding()
+                Button(action: {authentication.signUp(user: newUser) {success in
+                    if success {
+                        isSignedUp = true
+                    }
+                    else {
+                        return
+                    }
+                }
+                })
+                {
+                    Text("Sign up here")}
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(width: 220, height: 50)
+                .background(Color(red: 112/255, green: 132/255, blue: 252/255))
+                .cornerRadius(15.0)
+                .padding(.bottom, 30)
+                
+            }
+            .navigationDestination(isPresented: $isSignedUp) {LoginView()}
+            .background(Color(red: 156/255, green: 188/255, blue: 252/255))
+            .cornerRadius(15.0)
+            .padding(50)
+            .padding(.top, 150)
+            .opacity(0.8)
+        }
+        
+        
+    }
             }
         }
-    }
-}
+    
 
 #Preview {
     SignUpView()

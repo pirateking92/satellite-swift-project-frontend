@@ -35,12 +35,25 @@ struct LoginView: View {
                             player.play()
                         }
                     }
+    
                 VStack {
-                    Text("Add your details here to login")
+                    Image("satellite-dish")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
+                        .accessibilityIdentifier("satellite-logo")
+                    Text("You're one click away \nfrom lift off!")
+                        .font(.custom("Futura", size: 20))
+                        .foregroundColor(Color(red: 188/255, green: 188/255, blue: 188/255))
+                        .multilineTextAlignment(.center)
+                }
+                    .padding(.bottom, 400)
+                VStack {
                     TextField("Enter your email address", text: $newUser.email)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
                         .padding()
+                        .padding(.top, 25)
                     SecureField("Enter your password here", text: $newUser.password)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
@@ -52,11 +65,11 @@ struct LoginView: View {
                     }
                     .font(.headline)
                     .foregroundColor(.white)
-                    .padding()
                     .frame(width: 220, height: 50)
-                    .background(Color.gray)
+                    .background(Color(red: 112/255, green: 132/255, blue: 252/255))
                     .cornerRadius(15.0)
-                    .opacity(0.3)
+                    .padding(.bottom, 30)
+                    .shadow(radius: 1)
                     
                     if let error = loginError {
                         Text(error)
@@ -65,8 +78,12 @@ struct LoginView: View {
                     }
                 }
                 .navigationDestination(isPresented: $isLoggedIn) {
-                    WelcomePageView()
-                }
+                    WelcomePageView()}
+                .background(Color(red: 156/255, green: 188/255, blue: 252/255))
+                .cornerRadius(15.0)
+                .padding(45)
+                .padding(.top, 75)
+                .opacity(0.8)
             }
         }
     }
