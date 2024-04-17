@@ -42,6 +42,7 @@ struct SignUpView: View {
                         .autocapitalization(.none)
                         .padding()
                     TextField("Add your email address", text: $newUser.email)
+                        .background(Color(red: 100, green: 1000, blue: 100))
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .autocapitalization(.none)
                         .padding()
