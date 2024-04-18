@@ -75,7 +75,7 @@ struct WelcomePageView: View {
                                     .frame(width: 220, height: 50)
                                     .background(Color.gray)
                                     .cornerRadius(15.0)
-                                    .opacity(0.3)
+//                                    .opacity(0.3)
                             }
                         )
 

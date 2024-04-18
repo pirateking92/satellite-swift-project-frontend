@@ -37,7 +37,7 @@ struct FeedPageView: View {
                 }
                 ScrollView {
                     VStack(spacing: 20) {
-                        ForEach(postList, id: \.message) { post in
+                        ForEach(postList, id: \._id) { post in
                             GroupBox {
                                 HStack {
 //                                    here is where the image will go
@@ -52,8 +52,7 @@ struct FeedPageView: View {
                                 HStack {
                                     HStack {
 //                                      like button
-//                                        Text("\(post.likes.count)")
-                                        Text("X likes")
+                                        Text("\(post.likes.count) likes")
                                             .font(.footnote)
                                             .italic()
                                     }
