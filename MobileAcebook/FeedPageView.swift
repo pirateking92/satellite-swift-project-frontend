@@ -11,6 +11,8 @@ struct FeedPageView: View {
     
     @State var postContent: String = ""
     @State var postList: [Post] = []
+    @State var isLiked: Bool = true
+    @StateObject var postService = PostService()
     
     var body: some View {
         ZStack {
@@ -19,7 +21,7 @@ struct FeedPageView: View {
                     TextField("Add your post:", text: $postContent)
                     Button(action: {
                         if postContent != "" {
-                            createPost(postContent: postContent)
+                            postService.createPost(postContent: postContent)
                             postContent = ""
 //                            THIS ONLY SOMETIMES WORKS BECAUSE OF ASYNC PROBS
                             getAllPosts()
@@ -52,9 +54,11 @@ struct FeedPageView: View {
                                 HStack {
                                     HStack {
 //                                      like button
-                                        Text("\(post.likes.count) likes")
-                                            .font(.footnote)
-                                            .italic()
+                                        Image(systemName: isLiked ? "heart.fill" : "heart")
+                                            .foregroundColor(isLiked ? .red : .gray)
+                                                        Text("\(post.likes.count)")
+                                            .foregroundColor(.primary)
+                                            .cornerRadius(10)
                                     }
                                     Spacer()
                                     
@@ -74,7 +78,7 @@ struct FeedPageView: View {
     }
     
     func getAllPosts() {
-        getPosts { posts, error in
+        postService.getPosts { posts, error in
             if let posts = posts {
                 self.postList = posts
             } 

@@ -86,10 +86,11 @@ class AuthenticationService: AuthenticationServiceProtocol, ObservableObject {
                 return
             }
             
+            
             if let responseData = data {
                 do {
                     let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: responseData)
-                    UserDefaults.standard.set(loginResponse.token, forKey: "token")
+                        UserDefaults.standard.set(loginResponse.token, forKey: "token")
                     completion(.success(loginResponse))
                 } catch {
                     completion(.failure(error))
@@ -101,6 +102,6 @@ class AuthenticationService: AuthenticationServiceProtocol, ObservableObject {
     }
 }
 
-
+    
 
 
