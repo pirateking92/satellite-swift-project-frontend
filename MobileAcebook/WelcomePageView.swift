@@ -39,18 +39,17 @@ struct WelcomePageView: View {
                     Text("This is \nSatellite!")
                         .font(.custom("Futura", size: 28))
                         .fontWeight(.semibold)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(red: 188/255, green: 188/255, blue: 188/255))
                         .kerning(3.5)
                         .padding(.bottom, 20)
                         .multilineTextAlignment(.center)
-                        .opacity(0.9)
                         .accessibilityIdentifier("welcomeText")
                     Text("Launch your thoughts into orbit")
 //                        .font(.title3)
                         .font(.custom("Futura", size: 22))
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(red: 188/255, green: 188/255, blue: 188/255))
                     
-                        .opacity(0.6)
+                        .opacity(0.9)
                         .padding(.bottom, 20)
                         .accessibilityIdentifier("taglineText")
                     
@@ -73,9 +72,9 @@ struct WelcomePageView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(width: 220, height: 50)
-                                    .background(Color.gray)
+                                    .background(Color(red: 112/255, green: 132/255, blue: 252/255))
                                     .cornerRadius(15.0)
-                                    .opacity(0.3)
+                                    .opacity(0.5)
                             }
                         )
 
@@ -87,13 +86,13 @@ struct WelcomePageView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(width: 220, height: 50)
-                                    .background(Color.gray)
+                                    .background(Color(red: 112/255, green: 132/255, blue: 252/255))
                                     .cornerRadius(15.0)
-                                    .opacity(0.3)
+                                    .opacity(0.5)
                             }
                         )
                         .padding()
-                    .padding()
+                    
                 
                     
                     Spacer()
