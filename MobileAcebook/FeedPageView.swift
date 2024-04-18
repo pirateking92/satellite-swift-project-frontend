@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import Cloudinary
 
 struct FeedPageView: View {
     
     @State var postContent: String = ""
     @State var postList: [Post] = []
+    let config = CLDConfiguration(cloudName: "jfsodjfdsof", apiKey: "gabfnlay")
     
     var body: some View {
         ZStack {

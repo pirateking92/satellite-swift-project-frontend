@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01D7FA39224D3771C61DDA3D /* Pods_MobileAcebook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC843469B99B63C903D9AA29 /* Pods_MobileAcebook.framework */; };
 		1E98D8152BCE89A10023D286 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98D8142BCE89A10023D286 /* SignUpView.swift */; };
 		1E98D8172BCEBD220023D286 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E98D8162BCEBD220023D286 /* LoginView.swift */; };
+		5D308CEB5C0EAA9D3E11939A /* Pods_MobileAcebook_MobileAcebookUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D5F8858D7A11ED6E892C83B /* Pods_MobileAcebook_MobileAcebookUITests.framework */; };
+		80E0B9E290EF56ABA8503654 /* Pods_MobileAcebookTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAF1ABC5423B7159C063B3F1 /* Pods_MobileAcebookTests.framework */; };
 		8F41118A2BCEB24D004889EA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4111892BCEB24D004889EA /* Post.swift */; };
 		8F9E7A072BCE779800A82B0F /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9E7A062BCE779800A82B0F /* PostService.swift */; };
 		8F9E7A092BCE7BB600A82B0F /* FeedPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9E7A082BCE7BB600A82B0F /* FeedPageView.swift */; };
@@ -44,8 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D5F8858D7A11ED6E892C83B /* Pods_MobileAcebook_MobileAcebookUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAcebook_MobileAcebookUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E98D8142BCE89A10023D286 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		1E98D8162BCEBD220023D286 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		2353C39E7B380D2D0DA71D31 /* Pods-MobileAcebook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAcebook.debug.xcconfig"; path = "Target Support Files/Pods-MobileAcebook/Pods-MobileAcebook.debug.xcconfig"; sourceTree = "<group>"; };
+		2562E841CCA6F8415F65743E /* Pods-MobileAcebook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAcebook.release.xcconfig"; path = "Target Support Files/Pods-MobileAcebook/Pods-MobileAcebook.release.xcconfig"; sourceTree = "<group>"; };
+		4203927322F0D8AFCF570E91 /* Pods-MobileAcebookTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAcebookTests.debug.xcconfig"; path = "Target Support Files/Pods-MobileAcebookTests/Pods-MobileAcebookTests.debug.xcconfig"; sourceTree = "<group>"; };
+		73FE065C579B9F0D9CF0C00F /* Pods-MobileAcebookTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAcebookTests.release.xcconfig"; path = "Target Support Files/Pods-MobileAcebookTests/Pods-MobileAcebookTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F4111892BCEB24D004889EA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8F9E7A062BCE779800A82B0F /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8F9E7A082BCE7BB600A82B0F /* FeedPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPageView.swift; sourceTree = "<group>"; };
@@ -64,6 +72,10 @@
 		AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthenticationService.swift; sourceTree = "<group>"; };
 		AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		AE5D85E72AC9B29A009680C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DAF1ABC5423B7159C063B3F1 /* Pods_MobileAcebookTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAcebookTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC843469B99B63C903D9AA29 /* Pods_MobileAcebook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobileAcebook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E67F41E2C26163CDD20E66FD /* Pods-MobileAcebook-MobileAcebookUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAcebook-MobileAcebookUITests.debug.xcconfig"; path = "Target Support Files/Pods-MobileAcebook-MobileAcebookUITests/Pods-MobileAcebook-MobileAcebookUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F98A5702CB7598B52628B71E /* Pods-MobileAcebook-MobileAcebookUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobileAcebook-MobileAcebookUITests.release.xcconfig"; path = "Target Support Files/Pods-MobileAcebook-MobileAcebookUITests/Pods-MobileAcebook-MobileAcebookUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01D7FA39224D3771C61DDA3D /* Pods_MobileAcebook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E0B9E290EF56ABA8503654 /* Pods_MobileAcebookTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,12 +99,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D308CEB5C0EAA9D3E11939A /* Pods_MobileAcebook_MobileAcebookUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F603A8F6FE8DFF211B71369 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2353C39E7B380D2D0DA71D31 /* Pods-MobileAcebook.debug.xcconfig */,
+				2562E841CCA6F8415F65743E /* Pods-MobileAcebook.release.xcconfig */,
+				E67F41E2C26163CDD20E66FD /* Pods-MobileAcebook-MobileAcebookUITests.debug.xcconfig */,
+				F98A5702CB7598B52628B71E /* Pods-MobileAcebook-MobileAcebookUITests.release.xcconfig */,
+				4203927322F0D8AFCF570E91 /* Pods-MobileAcebookTests.debug.xcconfig */,
+				73FE065C579B9F0D9CF0C00F /* Pods-MobileAcebookTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AE5D85A32AC8A221009680C6 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +128,8 @@
 				AE5D85BF2AC8A224009680C6 /* MobileAcebookTests */,
 				AE5D85C92AC8A224009680C6 /* MobileAcebookUITests */,
 				AE5D85AD2AC8A221009680C6 /* Products */,
+				8F603A8F6FE8DFF211B71369 /* Pods */,
+				BDBE04A4E658E4074E7C8E70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,7 +146,6 @@
 		AE5D85AE2AC8A221009680C6 /* MobileAcebook */ = {
 			isa = PBXGroup;
 			children = (
-				1E98D81E2BCFDF6D0023D286 /* Info.plist */,
 				AE5D85E42AC9B060009680C6 /* Protocols */,
 				AE5D85DF2AC9AF83009680C6 /* Models */,
 				AE5D85DD2AC9AF72009680C6 /* Services */,
@@ -149,7 +179,6 @@
 		AE5D85C92AC8A224009680C6 /* MobileAcebookUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1E98D8182BCFDB9C0023D286 /* fs-vincent.ttf */,
 				AE5D85CA2AC8A224009680C6 /* MobileAcebookUITests.swift */,
 				AE5D85CC2AC8A224009680C6 /* MobileAcebookUITestsLaunchTests.swift */,
 				AE5D85DB2AC8A422009680C6 /* WelcomePageUITests.swift */,
@@ -191,6 +220,16 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		BDBE04A4E658E4074E7C8E70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC843469B99B63C903D9AA29 /* Pods_MobileAcebook.framework */,
+				1D5F8858D7A11ED6E892C83B /* Pods_MobileAcebook_MobileAcebookUITests.framework */,
+				DAF1ABC5423B7159C063B3F1 /* Pods_MobileAcebookTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -198,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE5D85D02AC8A224009680C6 /* Build configuration list for PBXNativeTarget "MobileAcebook" */;
 			buildPhases = (
+				911EF0AB38B5400EF729CAC4 /* [CP] Check Pods Manifest.lock */,
 				AE5D85A82AC8A221009680C6 /* Sources */,
 				AE5D85A92AC8A221009680C6 /* Frameworks */,
 				AE5D85AA2AC8A221009680C6 /* Resources */,
+				467FB3ECBE281D1A0CE1B453 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,6 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE5D85D32AC8A224009680C6 /* Build configuration list for PBXNativeTarget "MobileAcebookTests" */;
 			buildPhases = (
+				9105B51BAE7F7BF77AE8C26A /* [CP] Check Pods Manifest.lock */,
 				AE5D85B82AC8A224009680C6 /* Sources */,
 				AE5D85B92AC8A224009680C6 /* Frameworks */,
 				AE5D85BA2AC8A224009680C6 /* Resources */,
@@ -233,9 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE5D85D62AC8A224009680C6 /* Build configuration list for PBXNativeTarget "MobileAcebookUITests" */;
 			buildPhases = (
+				67E7785BDA971D3B26EDAC53 /* [CP] Check Pods Manifest.lock */,
 				AE5D85C22AC8A224009680C6 /* Sources */,
 				AE5D85C32AC8A224009680C6 /* Frameworks */,
 				AE5D85C42AC8A224009680C6 /* Resources */,
+				D2FCBEFE18424430B145A265 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,7 +340,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE5D85B72AC8A224009680C6 /* Preview Assets.xcassets in Resources */,
-				1E98D8192BCFDB9C0023D286 /* fs-vincent.ttf in Resources */,
 				AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +359,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		467FB3ECBE281D1A0CE1B453 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileAcebook/Pods-MobileAcebook-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileAcebook/Pods-MobileAcebook-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileAcebook/Pods-MobileAcebook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67E7785BDA971D3B26EDAC53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileAcebook-MobileAcebookUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9105B51BAE7F7BF77AE8C26A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileAcebookTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		911EF0AB38B5400EF729CAC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobileAcebook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2FCBEFE18424430B145A265 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileAcebook-MobileAcebookUITests/Pods-MobileAcebook-MobileAcebookUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobileAcebook-MobileAcebookUITests/Pods-MobileAcebook-MobileAcebookUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobileAcebook-MobileAcebookUITests/Pods-MobileAcebook-MobileAcebookUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE5D85A82AC8A221009680C6 /* Sources */ = {
@@ -486,6 +632,7 @@
 		};
 		AE5D85D12AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2353C39E7B380D2D0DA71D31 /* Pods-MobileAcebook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -515,6 +662,7 @@
 		};
 		AE5D85D22AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2562E841CCA6F8415F65743E /* Pods-MobileAcebook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -544,6 +692,7 @@
 		};
 		AE5D85D42AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4203927322F0D8AFCF570E91 /* Pods-MobileAcebookTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -563,6 +712,7 @@
 		};
 		AE5D85D52AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73FE065C579B9F0D9CF0C00F /* Pods-MobileAcebookTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -582,6 +732,7 @@
 		};
 		AE5D85D72AC8A224009680C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E67F41E2C26163CDD20E66FD /* Pods-MobileAcebook-MobileAcebookUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -599,6 +750,7 @@
 		};
 		AE5D85D82AC8A224009680C6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F98A5702CB7598B52628B71E /* Pods-MobileAcebook-MobileAcebookUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

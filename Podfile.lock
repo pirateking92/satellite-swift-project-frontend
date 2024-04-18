@@ -1,0 +1,18 @@
+PODS:
+  - Cloudinary (4.7.0):
+    - Cloudinary/ios (= 4.7.0)
+  - Cloudinary/ios (4.7.0)
+
+DEPENDENCIES:
+  - Cloudinary (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Cloudinary
+
+SPEC CHECKSUMS:
+  Cloudinary: 6eed964153d83d4746ee83dfc783417b368190fc
+
+PODFILE CHECKSUM: b561455316fd2f6c5e16314ba9019a85d64a4482
+
+COCOAPODS: 1.15.2

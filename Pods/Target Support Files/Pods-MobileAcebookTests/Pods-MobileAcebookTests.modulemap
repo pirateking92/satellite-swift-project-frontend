@@ -1,0 +1,6 @@
+framework module Pods_MobileAcebookTests {
+  umbrella header "Pods-MobileAcebookTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
