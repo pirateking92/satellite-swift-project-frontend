@@ -8,17 +8,21 @@
 import Foundation
 import SwiftUI
 
+struct CreatePostResponse: Codable {
+    let message: String
+    let token: String
+}
 
 func createPost(postContent: String) -> Void {
     // Logic to call the backend API for signing up
     let message = postContent
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxZTRmN2EwNTZjMjY2MDE2ZjJjMWIxIiwiaWF0IjoxNzEzMjYyNzQwLCJleHAiOjE3MTM4NjI3NDB9.DTMTjtXdhz8KYv93ai2SEeABo7uUQ5NGXfSEI4i8sRQ"
+    @AppStorage("token") var savedToken: String = ""
+    print("savedToken extracted for createPost: \(savedToken)")
     let url = URL(string: "http://localhost:3000/posts")!
-    
     
     var request = URLRequest(url: url)
     request.httpMethod = "POST"
-    request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    request.addValue("Bearer \(savedToken)", forHTTPHeaderField: "Authorization")
     
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
@@ -34,10 +38,24 @@ func createPost(postContent: String) -> Void {
     }
     
 
-    let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-        // Handle response here
-    }
-    task.resume()
+    URLSession.shared.dataTask(with: request) { data, response, error in
+        if let error = error {
+            print(error)
+            return
+        }
+        
+        if let responseData = data {
+            do {
+                let createPostResponse = try JSONDecoder().decode(CreatePostResponse.self, from: responseData)
+                UserDefaults.standard.set(createPostResponse.token, forKey: "token")
+            } catch {
+                print(error)
+            }
+        } else {
+            print(error!)
+        }
+    }.resume()
+
 }
 
 //func getPosts() -> Void {
@@ -81,7 +99,8 @@ func createPost(postContent: String) -> Void {
 
 func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
     
-    let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjYxZTRmN2EwNTZjMjY2MDE2ZjJjMWIxIiwiaWF0IjoxNzEzMjYyNzQwLCJleHAiOjE3MTM4NjI3NDB9.DTMTjtXdhz8KYv93ai2SEeABo7uUQ5NGXfSEI4i8sRQ"
+    @AppStorage("token") var savedToken: String = ""
+    print("savedToken extracted for getPosts: \(savedToken)")
     
 //    create the struct for decoding
     struct ResponseData: Codable {
@@ -97,7 +116,7 @@ func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
     
 //    create the request and attach the token
     var request = URLRequest(url: url)
-    request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+    request.setValue("Bearer \(savedToken)", forHTTPHeaderField: "Authorization")
     
     
 //    get data
@@ -109,9 +128,10 @@ func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
         do {
 //            decode
           let postsResponse = try JSONDecoder().decode(ResponseData.self, from: data)
-          completion(postsResponse.posts, nil)
+            UserDefaults.standard.set(postsResponse.token, forKey: "token")
+            completion(postsResponse.posts, nil)
         } catch {
-          print("Decoding error: \(error)")
+            print("Decoding error: \(error)")
           completion(nil, error)
         }
     }.resume()
