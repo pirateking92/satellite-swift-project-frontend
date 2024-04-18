@@ -11,8 +11,9 @@ struct FeedPageView: View {
     
     @State var postContent: String = ""
     @State var postList: [Post] = []
-    @State var isLiked: Bool = true
-    @StateObject var postService = PostService()
+//    @State var isLiked: Bool = false
+    @AppStorage("user_id") var user_id: String = ""
+    //    @StateObject var postService = PostService()
     
     var body: some View {
         ZStack {
@@ -21,10 +22,11 @@ struct FeedPageView: View {
                     TextField("Add your post:", text: $postContent)
                     Button(action: {
                         if postContent != "" {
-                            postService.createPost(postContent: postContent)
+                            createPost(postContent: postContent)
                             postContent = ""
-//                            THIS ONLY SOMETIMES WORKS BECAUSE OF ASYNC PROBS
+                            //                            THIS ONLY SOMETIMES WORKS BECAUSE OF ASYNC PROBS
                             getAllPosts()
+                            getUserId()
                         }
                     }) {
                         Text("Post")
@@ -34,15 +36,16 @@ struct FeedPageView: View {
                 
                 Spacer()
                 
-                .onAppear {
-                    getAllPosts()
-                }
+                    .onAppear {
+                        getAllPosts()
+                        getUserId()
+                    }
                 ScrollView {
                     VStack(spacing: 20) {
                         ForEach(postList, id: \._id) { post in
                             GroupBox {
                                 HStack {
-//                                    here is where the image will go
+                                    //                                    here is where the image will go
                                     VStack {
                                         Text(post.createdBy.username)
                                         Text(post.createdAt)
@@ -54,11 +57,17 @@ struct FeedPageView: View {
                                 HStack {
                                     HStack {
 //                                      like button
-                                        Image(systemName: isLiked ? "heart.fill" : "heart")
-                                            .foregroundColor(isLiked ? .red : .gray)
-                                                        Text("\(post.likes.count)")
+                                        Button(action: {
+                                                updateLikes(postID: post._id)
+                                                getAllPosts()
+                                            })
+                                        {HStack {
+                                            Image(systemName: post.likes.contains(user_id) ? "heart.fill" : "heart")
+                                                .foregroundColor(post.likes.contains(user_id) ? .red : .gray)
+                                            Text("\(post.likes.count)")
                                             .foregroundColor(.primary)
-                                            .cornerRadius(10)
+                                            .cornerRadius(10)}
+                                        }
                                     }
                                     Spacer()
                                     
@@ -66,7 +75,7 @@ struct FeedPageView: View {
                                         .font(.footnote)
                                         .italic()
                                 }
-
+                                
                             }
                             .backgroundStyle(Color.white)
                             .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
@@ -78,10 +87,10 @@ struct FeedPageView: View {
     }
     
     func getAllPosts() {
-        postService.getPosts { posts, error in
+        getPosts { posts, error in
             if let posts = posts {
                 self.postList = posts
-            } 
+            }
             else {
             }
         }
@@ -90,8 +99,11 @@ struct FeedPageView: View {
 
 
 
+
 struct FeedPageView_Previews: PreviewProvider {
     static var previews: some View {
         FeedPageView()
     }
 }
+
+
