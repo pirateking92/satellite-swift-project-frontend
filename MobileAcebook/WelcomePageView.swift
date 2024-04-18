@@ -72,7 +72,7 @@ struct WelcomePageView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(width: 220, height: 50)
-                                    .background(Color(red: 188/255, green: 188/255, blue: 188/255))
+                                    .background(Color(red: 112/255, green: 132/255, blue: 252/255))
                                     .cornerRadius(15.0)
                                     .opacity(0.5)
                             }
@@ -86,13 +86,13 @@ struct WelcomePageView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(width: 220, height: 50)
-                                    .background(Color(red: 188/255, green: 188/255, blue: 188/255))
+                                    .background(Color(red: 112/255, green: 132/255, blue: 252/255))
                                     .cornerRadius(15.0)
                                     .opacity(0.5)
                             }
                         )
                         .padding()
-                    .padding()
+                    
                 
                     
                     Spacer()

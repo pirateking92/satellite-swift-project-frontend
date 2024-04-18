@@ -66,10 +66,12 @@ struct LoginView: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 220, height: 50)
+                    .border(Color(red: 112/255, green: 132/255, blue: 225/255), width: 1)
                     .background(Color(red: 112/255, green: 132/255, blue: 252/255))
                     .cornerRadius(15.0)
                     .padding(.bottom, 30)
-                    .shadow(radius: 1)
+                    .shadow(radius: 5)
+                    
                     
                     if let error = loginError {
                         Text(error)
