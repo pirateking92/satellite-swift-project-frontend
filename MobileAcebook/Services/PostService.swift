@@ -13,7 +13,7 @@ struct CreatePostResponse: Codable {
     let token: String
 }
 
-class PostService: ObservableObject {
+//class PostService: ObservableObject {
 //    @Published var posts: [Post] = []
 
     
@@ -238,5 +238,41 @@ class PostService: ObservableObject {
         }.resume()
         
     }
+
+func getUserId() -> Void {
+    @AppStorage("token") var savedToken: String = ""
+    print("savedToken extracted for getPosts: \(savedToken)")
     
+    //    create the struct for decoding
+    struct ResponseData: Codable {
+        var userData: [UserData]
+        var token: String
+    }
+    guard let url = URL(string: "http://localhost:3000/users") else {
+        print("Invalid URL")
+        return
+    }
+    
+    //    create the request and attach the token
+    var request = URLRequest(url: url)
+    request.setValue("Bearer \(savedToken)", forHTTPHeaderField: "Authorization")
+    
+    
+    //    get data
+    URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data, error == nil else {
+            return
+        }
+        do {
+            //            decode
+            let userResponse = try JSONDecoder().decode(ResponseData.self, from: data)
+            UserDefaults.standard.set(userResponse.token, forKey: "token")
+            let user_id = userResponse.userData[0]._id
+            UserDefaults.standard.set(user_id, forKey: "user_id")
+        } catch {
+            print("Decoding error: \(error)")
+        }
+    }.resume()
 }
+    
+//}
