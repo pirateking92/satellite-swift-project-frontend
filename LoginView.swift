@@ -80,7 +80,7 @@ struct LoginView: View {
                     }
                 }
                 .navigationDestination(isPresented: $isLoggedIn) {
-                    WelcomePageView()}
+                    FeedPageView()}
                 .background(Color(red: 156/255, green: 188/255, blue: 252/255))
                 .cornerRadius(15.0)
                 .padding(45)
