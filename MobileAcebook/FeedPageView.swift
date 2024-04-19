@@ -12,7 +12,9 @@ import AVKit
 struct FeedPageView: View {
     
     @State var postContent: String = ""
+    @State var commentContent: String = ""
     @State var postList: [Post] = []
+    @State var commentList: [Comment] = []
     @State var player = AVPlayer()
     var videoUrl: String = "https://assets.mixkit.co/videos/preview/mixkit-view-of-the-night-sky-filled-with-stars-39770-large.mp4"
     let dateFormatter: DateFormatter = {
@@ -104,7 +106,7 @@ struct FeedPageView: View {
                                     
                                 HStack {
                                     HStack {
-//                                      like button
+                                        //                                      like button
                                         Button(action: {
                                             updateLikes(postID: post._id)
                                             getAllPosts()
@@ -114,16 +116,64 @@ struct FeedPageView: View {
                                                 .foregroundColor(post.likes.contains(user_id) ? .red : .gray)
                                             Text("\(post.likes.count)")
                                                 .foregroundColor(.primary)
-                                                .cornerRadius(10)}
+                                            .cornerRadius(10)}
                                         }
                                     }
                                     Spacer()
-                                    
-                                    Text("X comments")
-                                        .font(.footnote)
-                                        .italic()
                                 }
-
+                                HStack{
+                                    DisclosureGroup("comments") {
+                                        HStack(alignment: .center, spacing: 20) {
+                                            TextField("Comment?", text: $commentContent)
+                                                .font(.system(size: 16))
+                                                .padding(.bottom, 40)
+                                            Button(action: {
+                                                if commentContent != "" {
+                                                    createComment(commentContent: commentContent, postID: post._id)
+                                                    commentContent = ""
+                                                    //                            THIS ONLY SOMETIMES WORKS BECAUSE OF ASYNC PROBS
+                                                }
+                                            }) {
+                                                Text("Launch 🚀")
+                                                    .padding(.top, 60)
+                                                    .frame(width: 90, height: 80)
+                                            }
+                                            
+                                            
+                                            
+                                            
+                                        }
+                                        .padding(.horizontal, 10)
+                                        .padding(.bottom, 20)
+                                        .background(.white)
+                                        .border(Color(red: 112/255, green: 132/255, blue: 225/255), width: 4)
+                                        .cornerRadius(10.0)
+                                        .padding(.horizontal, 20)
+                                        .padding(.top, 40)
+                                        .padding(.bottom, 20)
+                                        VStack(spacing: 20) {
+                                            ForEach(commentList.reversed(), id: \._id) { comment in
+                                                GroupBox {
+                                                    HStack {
+                                                        VStack {
+                                                            Text(comment.createdBy.username)
+                                                                .font(.headline)
+                                                            
+                                                            
+                                                            Text(comment.createdAt)
+                                                                .font(.footnote)
+                                                        }
+                                                    }
+                                                    Text(comment.message)
+                                                        .frame(height: 100)
+                                                }
+                                            }
+                                        }
+                                    }.onAppear{getAllComments(postID: post._id)}
+                                    //                                    Text("X comments")
+                                    //                                        .font(.footnote)
+                                    //                                        .italic()
+                                }
                             }
                            
                             .background(Color(red: 156/255, green: 188/255, blue: 252/255))
@@ -148,6 +198,18 @@ struct FeedPageView: View {
             }
         }
     }
+    
+    func getAllComments(postID: String) {
+        getComment(postID: postID) { comments, error in
+            if let comments = comments {
+                self.commentList = comments
+            }
+            else {
+            }
+        }
+    }
+
+    
 
 }
 
