@@ -184,3 +184,91 @@ func getPosts(completion: @escaping ([Post]?, Error?) -> Void) {
 //    // Start the data task.
 //    task.resume()
 //}
+
+func updateLikes(postID: String) -> Void {
+        // Logic to call the backend API for signing up
+        @AppStorage("token") var savedToken: String = ""
+        let url = URL(string: "http://localhost:3000/posts")!
+        
+        struct ResponseData: Codable {
+            var post: Likes
+            var token: String
+            var message: String
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("Bearer \(savedToken)", forHTTPHeaderField: "Authorization")
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body: [String: Any] = [
+            "postId": postID
+        ]
+        
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: body, options: [])
+            request.httpBody = jsonData
+        } catch {
+            print("Error: no message created")
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let responseData = data {
+                do {
+                    let likesResponse = try JSONDecoder().decode(ResponseData.self, from: responseData)
+                    let likes = likesResponse.post.likes
+                    UserDefaults.standard.set(likesResponse.token, forKey: "token")
+                    print(likes)
+                } catch {
+                    print(error)
+                }
+            } else {
+                print(error!)
+            }
+        }.resume()
+        
+    }
+
+func getUserId() -> Void {
+    @AppStorage("token") var savedToken: String = ""
+    print("savedToken extracted for getPosts: \(savedToken)")
+    
+    //    create the struct for decoding
+    struct ResponseData: Codable {
+        var userData: [UserData]
+        var token: String
+    }
+    guard let url = URL(string: "http://localhost:3000/users") else {
+        print("Invalid URL")
+        return
+    }
+    
+    //    create the request and attach the token
+    var request = URLRequest(url: url)
+    request.setValue("Bearer \(savedToken)", forHTTPHeaderField: "Authorization")
+    
+    
+    //    get data
+    URLSession.shared.dataTask(with: request) { data, response, error in
+        guard let data = data, error == nil else {
+            return
+        }
+        do {
+            //            decode
+            let userResponse = try JSONDecoder().decode(ResponseData.self, from: data)
+            UserDefaults.standard.set(userResponse.token, forKey: "token")
+            let user_id = userResponse.userData[0]._id
+            UserDefaults.standard.set(user_id, forKey: "user_id")
+        } catch {
+            print("Decoding error: \(error)")
+        }
+    }.resume()
+}
+    
+//}

@@ -13,11 +13,20 @@ public struct Post: Codable {
     var createdAt: String
     var imgUrl: String?
     var createdBy: CreatedBy
-//    var likes: [CreatedBy]
+    var likes: [String]
 }
 
 public struct CreatedBy: Codable {
     var _id: String
     var username: String
     var profilePicture: String
+}
+
+public struct Likes: Codable {
+    var _id: String
+    var message: String
+    var createdAt: String
+    var createdBy: String
+    var imgUrl: String?
+    var likes: [String]
 }

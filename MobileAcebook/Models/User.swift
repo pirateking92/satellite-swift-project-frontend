@@ -10,3 +10,12 @@ public struct User: Codable {
     var password: String
     var email: String
 }
+
+public struct UserData: Codable {
+    var _id: String
+    var email: String
+    var password: String
+    var username: String
+    var imgUrl: String
+    var __v: Int
+}
