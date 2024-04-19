@@ -160,7 +160,7 @@ struct FeedPageView: View {
                                                                 .font(.headline)
                                                             
                                                             
-                                                            Text(comment.createdAt)
+                                                            Text(formatDate(date: comment.createdAt))
                                                                 .font(.footnote)
                                                         }
                                                     }
