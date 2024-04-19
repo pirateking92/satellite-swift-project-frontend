@@ -82,6 +82,7 @@ struct FeedPageView: View {
                 
                 .onAppear {
                     getAllPosts()
+                    getUserId()
                 }
                 ScrollView {
                     VStack(spacing: 20) {
