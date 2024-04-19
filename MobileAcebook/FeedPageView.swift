@@ -20,6 +20,7 @@ struct FeedPageView: View {
            formatter.dateFormat = "HH:mm 'on' EEEE, MMMM d, yyyy"
            return formatter
        }()
+    @AppStorage("user_id") var user_id: String = ""
     
     var body: some View {
         ZStack {
@@ -84,7 +85,7 @@ struct FeedPageView: View {
                 }
                 ScrollView {
                     VStack(spacing: 20) {
-                        ForEach(postList.reversed(), id: \.message) { post in
+                        ForEach(postList.reversed(), id: \._id) { post in
                             GroupBox {
                                 HStack {
 //                                    here is where the image will go
@@ -103,10 +104,17 @@ struct FeedPageView: View {
                                 HStack {
                                     HStack {
 //                                      like button
-//                                        Text("\(post.likes.count)")
-                                        Text("X likes")
-                                            .font(.footnote)
-                                            .italic()
+                                        Button(action: {
+                                            updateLikes(postID: post._id)
+                                            getAllPosts()
+                                        })
+                                        {HStack {
+                                            Image(systemName: post.likes.contains(user_id) ? "heart.fill" : "heart")
+                                                .foregroundColor(post.likes.contains(user_id) ? .red : .gray)
+                                            Text("\(post.likes.count)")
+                                                .foregroundColor(.primary)
+                                                .cornerRadius(10)}
+                                        }
                                     }
                                     Spacer()
                                     
