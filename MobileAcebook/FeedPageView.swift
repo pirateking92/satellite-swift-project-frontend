@@ -97,7 +97,7 @@ struct FeedPageView: View {
                                             .font(.headline)
                                             
                                             
-                                        Text(post.createdAt)
+                                        Text(formatDate(date: post.createdAt))
                                             .font(.footnote)
                                     }
                                 }
@@ -210,6 +210,48 @@ struct FeedPageView: View {
     }
 
     
+    func formatDate(date: String) -> String {
+        
+//        Format date on post
+        let originalDateFormatter = DateFormatter()
+        originalDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let postDateTime = originalDateFormatter.date(from: date)!
+        
+//        get current date
+        let currentDateTime = Date()
+
+        var timeInterval = currentDateTime.timeIntervalSince(postDateTime)
+        
+//        older than a day
+        if timeInterval > 86400 {
+            dateFormatter.dateFormat = "dd MMMM ''yy"
+            let dateString = dateFormatter.string(from: postDateTime)
+            return dateString
+        }
+//        older than an hour
+        else if timeInterval > 3600 {
+            let hours = Int(round(timeInterval) / 3600)
+            if hours == 1 {
+                return "posted 1 hour ago"
+            }
+            else {
+                return "posted \(hours) hours ago"
+            }
+        }
+//        older than one min
+        else if timeInterval > 60 {
+            let mins = Int(round(timeInterval) / 60)
+            if mins == 1 {
+                return "posted 1 minute ago"
+            }
+            else {
+                return "posted \(mins) mins ago"
+            }
+        }
+        else {
+            return "posted just now"
+        }
+    }
 
 }
 
